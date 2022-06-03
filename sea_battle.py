@@ -29,37 +29,32 @@ class BoardWrongShipException(BoardException):
 
 
 class Ship:
-    def __init__(self, bow, l, o):
-        self.bow = bow
-        self.l = l
-        self.o = o
-        self.lives = l
+    def __init__(self, bow, ship_len, orient):
+        self.bow = bow #bow - координаты носа коробля
+        self.ship_len = ship_len #ship_len - длинна коробля
+        self.orient = orient  #orient - ориентация коробля в пространстве: 0 - вертикально, 1 - горизонтально
+        self.lives = ship_len #lives - живучесть коробля = длинна коробля
 
     @property
     def dots(self):
         ship_dots = []
-        for i in range(self.l):
+        for i in range(self.ship_len):
             cur_x = self.bow.x
             cur_y = self.bow.y
 
-            if self.o == 0:
+            if self.orient == 0:
                 cur_x += i
 
-            elif self.o == 1:
+            elif self.orient == 1:
                 cur_y += i
 
             ship_dots.append(Dot(cur_x, cur_y))
 
         return ship_dots
 
+    def shooten(self, shot):
+        return shot in self.dots
 
 
-
-a = Dot(1, 1)
-b = Dot(3, 2)
-c = Dot(1, 1)
-
-aa = [Dot(1, 1), Dot(3, 2), Dot(1, 1)]
-
-print(a, b, c, sep=', ')
-print(a in aa, b in aa, c in aa)
+s = Ship(Dot(3, 1), 3, 0)
+print(s.dots)
