@@ -52,9 +52,39 @@ class Ship:
 
         return ship_dots
 
-    def shooten(self, shot):
+    def shot_func(self, shot):
         return shot in self.dots
+
+class GameField:
+    def __init__(self, hide=False, size=6):
+        self.hide = hide
+        self.size = size
+
+        self.sunken = 0 # Счетчик затопленных кораблей
+
+        self.field = [['0']*size for _ in range(size)]
+
+        self.busy = []
+        self.ships = []
+
+    def __str__(self):
+        draw_field = ''
+        draw_field = draw_field + '   | 1 | 2 | 3 | 4 | 5 | 6 |'
+        for i, row in enumerate(self.field):
+            draw_field = +f'\n{i+1} | '
+
+
+
+
+ff = GameField()
+
+print(ff.field)
+
+
+
+
 
 
 s = Ship(Dot(3, 1), 3, 0)
 print(s.dots)
+print(s.shot_func(Dot(4, 4)))
