@@ -1,3 +1,9 @@
+# Выводить доски рядом
+# AI не стреляет по точкам, по которым уже стрелял
+# AI пытается добить корабль
+
+
+
 from random import randint
 
 
@@ -60,9 +66,10 @@ class Ship:
 
 
 class Board:  # Board
-    def __init__(self, hid=False, size=6):
+    def __init__(self, hid=False, size=6, indent=0):
         self.hid = hid
         self.size = size
+        self.indent = indent
 
         self.sunken = 0  # Счетчик затопленных кораблей
 
@@ -80,6 +87,17 @@ class Board:  # Board
         if self.hid:
             draw_field = draw_field.replace('■', 'O')
         return draw_field
+
+    # def show_both_field(self):
+    #     draw_both_field = ''
+    #     draw_both_field = draw_both_field + f'Это ваша доска, {User.username}' + ' ' * 10 + 'Это доска компьютера:'
+    #     draw_both_field = draw_both_field + '\n  | 1 | 2 | 3 | 4 | 5 | 6 |' + ' ' * 10 + '  | 1 | 2 | 3 | 4 | 5 | 6 |'
+    #     for i, row in enumerate():
+    #         draw_both_field += f'\n{i + 1} | ' + ' | '.join(Player.field(row)) + ' |' + ' ' * 10 +f'\n{i + 1} | ' + ' | '.join(Player.enemy(row)) + ' |'
+    #
+    #     if self.hid:
+    #         draw_both_field = draw_both_field.replace('■', 'O')
+    #     return draw_both_field
 
     def out(self, d):
         return not ((0 <= d.x < self.size) and (0 <= d.y < self.size))
@@ -145,9 +163,10 @@ class Board:  # Board
 
 
 class Player:
-    def __init__(self, board, enemy):
+    def __init__(self, board, enemy, username=''):
         self.board = board
         self.enemy = enemy
+        self.username = username
 
     def ask(self):
         raise NotImplementedError()
@@ -165,6 +184,9 @@ class Player:
 class AI(Player):
     def ask(self):
         d = Dot(randint(0, 5), randint(0, 5))
+        while d in self.board.busy:
+            d = Dot(randint(0, 5), randint(0, 5))
+
         print(f"Ход компьютера: {d.x + 1} {d.y + 1}")
         return d
 
@@ -172,7 +194,7 @@ class AI(Player):
 class User(Player):
     def ask(self):
         while True:
-            cords = input("Ваш ход: ").split()
+            cords = input(f"Ваш ход, {User.username}: ").split()
 
             if len(cords) != 2:
                 print(" Введите 2 координаты! ")
@@ -236,48 +258,44 @@ class Game:
         print('   y - номер столбца        ')
         print('         УДАЧИ!!!           ')
         print('----------------------------')
-        # print("-------------------")
-        # print("  Приветсвуем вас  ")
-        # print("      в игре       ")
-        # print("    морской бой    ")
-        # print("-------------------")
-        # print(" формат ввода: x y ")
-        # print(" x - номер строки  ")
-        # print(" y - номер столбца ")
+        User.username = input('Введите Ваше имя: ')
+
 
     def loop(self):
         num = 0
         while True:
-            print("-" * 20)
-            print("Доска пользователя:")
+            print("-" * 28)
+            print(f"Это ваша доска, {User.username}")
+            # print(self.us.board.show_both_field())
             print(self.us.board)
-            print("-" * 20)
+            print("-" * 28)
             print("Доска компьютера:")
+            # print(self.ai.board.show_both_field())
             print(self.ai.board)
             if num % 2 == 0:
-                print("-" * 20)
-                print("Ходит пользователь!")
+                print("-" * 28)
+                print(f"Ходит игрок {User.username}!")
                 repeat = self.us.move()
             else:
-                print("-" * 20)
+                print("-" * 28)
                 print("Ходит компьютер!")
                 repeat = self.ai.move()
             if repeat:
                 num -= 1
 
-            if self.ai.board.sunken == 7:
-                print("-" * 20)
+            if self.ai.board.sunken == len(self.lens):
+                print("-" * 28)
                 print("Доска компьютера:")
                 print(self.ai.board)
-                print("-" * 20)
+                print("-" * 28)
                 print("Пользователь выиграл!")
                 break
 
-            if self.us.board.sunken == 7:
-                print("-" * 20)
+            if self.us.board.sunken == len(self.lens):
+                print("-" * 28)
                 print("Доска пользователя:")
                 print(self.us.board)
-                print("-" * 20)
+                print("-" * 28)
                 print("Компьютер выиграл!")
                 break
             num += 1
@@ -287,5 +305,7 @@ class Game:
         self.loop()
 
 
+
 g = Game()
 g.start()
+

@@ -76,7 +76,10 @@ class Board:
         
         self.ships.append(ship)
         self.contour(ship)
-            
+
+
+
+
     def contour(self, ship, verb = False):
         near = [
             (-1, -1), (-1, 0) , (-1, 1),
