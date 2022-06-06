@@ -1,6 +1,3 @@
-# Выводить доски рядом
-# AI пытается добить корабль
-
 from random import randint
 
 
@@ -195,16 +192,16 @@ class AI(Player):
 class User(Player):
     def ask(self):
         while True:
-            cords = input(f"Ваш ход, {User.username}: ").split()
+            cords = input(" " * 47 + f"Ваш ход, {User.username}: ").split()
 
             if len(cords) != 2:
-                print(" Введите 2 координаты! ")
+                print(" " * 47 + " Введите 2 координаты! ")
                 continue
 
             x, y = cords
 
             if not (x.isdigit()) or not (y.isdigit()):
-                print(" Введите числа! ")
+                print(" " * 47 + " Введите числа! ")
                 continue
 
             x, y = int(x), int(y)
@@ -218,7 +215,7 @@ class Game:
         self.lens = [3, 2, 2, 1, 1, 1, 1]
         pl = self.random_board()
         co = self.random_board()
-        co.hid = False
+        co.hid = True  # True для скрытия поля компьютера от игрока!
 
         self.ai = AI(co, pl)
         self.us = User(pl, co)
@@ -261,39 +258,44 @@ class Game:
         print('----------------------------')
         User.username = input('Введите Ваше имя: ')
 
+    def show_both_board(self):
+        draw_both_board = ''
+        pr_board = self.us.board.__str__().replace('\n', ' ')
+        pr_enemy = self.us.enemy.__str__().replace('\n', ' ')
+        draw_both_board = draw_both_board + 'Доска пользователя:' + ' ' * 28 + 'Доска компьютера:\n'
+        for i in range(0, len(pr_board), 28):
+            draw_both_board += f'{pr_board[i:i + 27]}' + ' ' * 20 + f'{pr_enemy[i:i + 27]}\n'
+
+        return draw_both_board[:-1]
+
     def loop(self):
         num = 0
         while True:
-            print("-" * 28)
-            print("Доска пользователя:")
-            print(self.us.board)
-            print("-" * 28)
-            print("Доска компьютера:")
-            print(self.ai.board)
+            print("-" * 74)
+            print(self.show_both_board())
+
             if num % 2 == 0:
-                print("-" * 28)
-                print("Ходит пользователь!")
+                print("-" * 74)
+                print(" " * 47 + "Ходит пользователь!")
                 repeat = self.us.move()
             else:
-                print("-" * 28)
+                print("-" * 74)
                 print("Ходит компьютер!")
                 repeat = self.ai.move()
             if repeat:
                 num -= 1
 
             if self.ai.board.sunken == 7:
-                print("-" * 28)
-                print("Доска компьютера:")
-                print(self.ai.board)
-                print("-" * 28)
-                print("Пользователь выиграл!")
+                print("-" * 74)
+                print(self.show_both_board())
+                print("-" * 74)
+                print(" " * 47 + f"Пользователь {User.username} выиграл!")
                 break
 
             if self.us.board.sunken == 7:
-                print("-" * 28)
-                print("Доска пользователя:")
-                print(self.us.board)
-                print("-" * 28)
+                print("-" * 74)
+                print(self.show_both_board())
+                print("-" * 74)
                 print("Компьютер выиграл!")
                 break
             num += 1
@@ -305,3 +307,4 @@ class Game:
 
 g = Game()
 g.start()
+

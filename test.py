@@ -1,7 +1,45 @@
-# count_by(1,10) #should return [1,2,3,4,5,6,7,8,9,10]
-# count_by(2,5) #should return [2,4,6,8,10]
+class AI(Player):
+    def ask(self):
+        if g.us.board.busy:
+            for i in range(len(g.us.board.busy), 0):
+                d = g.us.board.busy[i]
+                if g.us.board.field[d.x][d.y] == 'X':
+                    near = [(-1, -1), (-1, 0), (-1, 1),
+                            (0, -1), (0, 0), (0, 1),
+                            (1, -1), (1, 0), (1, 1)
+                            ]
+                    for dx, dy in near:
+                        cur = Dot(d.x + dx, d.y + dy)
+                        if not (g.us.board.out(cur)) and cur not in g.us.board.busy:
+                            d = cur
+                            print(f"Ход компьютера: {d.x + 1} {d.y + 1}")
+                            return d
+                            break
+                else:
+                    pass
+        else:
+            d = Dot(randint(0, 5), randint(0, 5))
 
-def count_by(x, n):
-    return [x + x * i for i in range(n)]
+        d = Dot(randint(0, 5), randint(0, 5))
+        while d in g.us.board.busy:
+            d = Dot(randint(0, 5), randint(0, 5))
 
-print(count_by(2, 5))
+        print(f"Ход компьютера: {d.x + 1} {d.y + 1}")
+        return d
+        # if g.us.board.field[d.x][d.y] == 'X':
+        #     near = [(-1, -1), (-1, 0), (-1, 1),
+        #             (0, -1), (0, 0), (0, 1),
+        #             (1, -1), (1, 0), (1, 1)
+        #             ]
+        #     for dx, dy in near:
+        #         cur = Dot(d.x + dx, d.y + dy)
+        #         if not (g.us.board.out(cur)) and cur not in g.us.board.busy:
+        #             d = cur
+        #             break
+        # else:
+        #     d = Dot(randint(0, 5), randint(0, 5))
+        #     while d in self.board.busy:
+        #         d = Dot(randint(0, 5), randint(0, 5))
+
+        # print(f"Ход компьютера: {d.x + 1} {d.y + 1}")
+        # return d
