@@ -1,18 +1,30 @@
-class SomeClass:
-    def __init__(self, propValue=0) -> None:
-        self.setAttachedProperty(propValue)
+class User:
+    def __init__(self, name, birth_date, rights) -> None:
+        self.__name = name
+        self.__birth_date = birth_date
+        self.__rights = rights
 
-    def setAttachedProperty(self, propValue):
-        self.attachedProperty = propValue
+    @property
+    def name(self):
+        return self.__name
 
-    def getAttachedProperty(self):
-        return self.attachedProperty
+    @property
+    def birth_date(self):
+        return self.__birth_date
 
-    def printContent(self):
-        print(f'attached property value from class {self.attachedProperty}')
+    @property
+    def rights(self):
+        return self.__rights
+
+    @rights.setter
+    def rights(self, _new_rights):
+        self.__rights = _new_rights
+        return self.__rights
 
 
 if __name__ == "__main__":
-    obj = SomeClass(5)
-    obj.printContent()
-    print(f'value of attached property {obj.getAttachedProperty()}')
+    user = User("Vasya", "10.10.10", 7)
+    print(user.name)
+    print(user.birth_date)
+    user.rights = 9
+    print(user.rights)
