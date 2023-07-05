@@ -75,7 +75,7 @@ class Game:
         self.ships_count = [3, 2, 2, 1, 1, 1, 1]
         pl = self.random_board()
         co = self.random_board()
-        co.hid = True  # True для скрытия поля компьютера от игрока!
+        # co.hid = True  # True для скрытия поля компьютера от игрока!
 
         self.ai = AI(co, pl)
         self.us = User(pl, co)
@@ -136,7 +136,7 @@ class Game:
 
             if num % 2 == 0:
                 print("-" * 74)
-                print(" " * 47 + "Ходит пользователь!")
+                print(" " * 47 + "Ходит игрок!")
                 repeat = self.us.move()
             else:
                 print("-" * 74)
@@ -145,14 +145,14 @@ class Game:
             if repeat:
                 num -= 1
 
-            if self.ai.board.sunken == 7:
+            if self.ai.board.sunken == self.ships_count.__len__():
                 print("-" * 74)
                 print(self.show_both_board())
                 print("-" * 74)
-                print(" " * 47 + f"Пользователь {User.username} выиграл!")
+                print(" " * 47 + f"Игрок {User.username} выиграл!")
                 break
 
-            if self.us.board.sunken == 7:
+            if self.us.board.sunken == self.ships_count.__len__():
                 print("-" * 74)
                 print(self.show_both_board())
                 print("-" * 74)
