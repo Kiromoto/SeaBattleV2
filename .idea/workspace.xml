@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df3d0ab6-38fc-4aa4-8ca7-7083a45e44f2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/Board.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sea_battle2.py" beforeDir="false" afterPath="$PROJECT_DIR$/sea_battle2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dot.py" beforeDir="false" afterPath="$PROJECT_DIR$/Dot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ship.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ship.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Task.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/a.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sea_battle.py" beforeDir="false" afterPath="$PROJECT_DIR$/sea_battle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sea_battle2.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +58,7 @@
       <recent name="D:\CODE\code_python\new\C2_5_sea_battle" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.sea_battle2">
+  <component name="RunManager" selected="Python.sea_battle">
     <configuration name="Board" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SeaBattleV2" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -141,7 +147,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sea_battle2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="sea_battle" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SeaBattleV2" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -154,7 +160,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sea_battle2.py" />
+      <option name="SCRIPT_NAME" value="D:\CODE\code_python\new\SeaBattleV2\sea_battle.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -186,11 +192,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.sea_battle" />
         <item itemvalue="Python.sea_battle2" />
         <item itemvalue="Python.Board" />
         <item itemvalue="Python.Ship" />
         <item itemvalue="Python.Dot" />
-        <item itemvalue="Python.sea_battle" />
       </list>
     </recent_temporary>
   </component>
@@ -205,7 +211,7 @@
       <workItem from="1687874241385" duration="2251000" />
       <workItem from="1687986542958" duration="6226000" />
       <workItem from="1688386548181" duration="12549000" />
-      <workItem from="1688423672767" duration="3554000" />
+      <workItem from="1688423672767" duration="13922000" />
     </task>
     <servers />
   </component>
@@ -224,11 +230,12 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SeaBattleV2$sea_battle2.coverage" NAME="sea_battle2 Coverage Results" MODIFIED="1688593036291" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SeaBattleV2$sea_battle2.coverage" NAME="sea_battle2 Coverage Results" MODIFIED="1688685388473" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SeaBattleV2$sea_battle.coverage" NAME="sea_battle Coverage Results" MODIFIED="1688685680280" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/sea_battle_py$Board.coverage" NAME="Board Coverage Results" MODIFIED="1688419563262" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/sea_battle_py$a.coverage" NAME="a Coverage Results" MODIFIED="1688385876937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/sea_battle_py$sea_battle.coverage" NAME="sea_battle Coverage Results" MODIFIED="1688390341595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/SeaBattleV2$Board.coverage" NAME="Board Coverage Results" MODIFIED="1688590635241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SeaBattleV2$Board.coverage" NAME="Board Coverage Results" MODIFIED="1688683542216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/sea_battle_py$Ship.coverage" NAME="Ship Coverage Results" MODIFIED="1688419379619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/sea_battle_py$sea_battle_2.coverage" NAME="sea_battle_2 Coverage Results" MODIFIED="1688390133806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/sea_battle_py$Dot.coverage" NAME="Dot Coverage Results" MODIFIED="1688418482732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

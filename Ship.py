@@ -11,7 +11,7 @@ class ShipLivesNegative(ShipException):
 
 
 class Ship:
-    def __init__(self, bow, ship_len:int, orient:int) -> None:
+    def __init__(self, bow, ship_len: int, orient: int) -> None:
         self.__bow = bow  # bow - координаты носа корабля
         self.__ship_len = ship_len  # ship_len - длинна корабля
         self.__orient = orient  # orient - ориентация корабля в пространстве: 0 - вертикально, 1 - горизонтально
@@ -38,7 +38,7 @@ class Ship:
         return self.__lives
 
     @lives.setter
-    def lives(self, _new_lives:int):
+    def lives(self, _new_lives: int):
         self.__lives = _new_lives
         if self.__lives < 0:
             raise ShipLivesNegative()

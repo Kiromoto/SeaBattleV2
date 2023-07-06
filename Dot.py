@@ -1,8 +1,5 @@
-
-
-
 class Dot:
-    def __init__(self, x:int, y:int) -> None:
+    def __init__(self, x: int, y: int) -> None:
         self.__x = x
         self.__y = y
 
