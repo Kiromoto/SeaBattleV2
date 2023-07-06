@@ -1,7 +1,7 @@
 from random import randint
-from Ship import Ship
-from Board import Board, Dot, BoardShipAddWrongException
-from Player import AI, User
+from lib.Ship import Ship
+from lib.Board import Board, Dot, BoardShipAddWrongException
+from lib.Player import AI, User
 
 
 class Game:
